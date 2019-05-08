@@ -18,8 +18,7 @@ class JKHomeViewController: JKBaseViewController ,UITableViewDelegate,UITableVie
         // Do any additional setup after loading the view.
         
         self.title = "首页"
-
-        self.tableView.register(UINib.init(nibName: "HomeListCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "HomeListCell")
+        self.tableView.register(HomeListCell.self, forCellReuseIdentifier: "HomeListCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +38,8 @@ class JKHomeViewController: JKBaseViewController ,UITableViewDelegate,UITableVie
          let cell:GBPropertyTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! GBPropertyTableViewCell
          */
  
-        let cell:HomeListCell = tableView.dequeueReusableCell(withIdentifier: "HomeListCell") as! HomeListCell
+        let cell:HomeListCell = tableView.dequeueReusableCell(withIdentifier: "HomeListCell", for: indexPath) as! HomeListCell
+
         return cell
     }
 
